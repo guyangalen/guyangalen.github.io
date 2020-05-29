@@ -75,9 +75,9 @@
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">虚方法和方法重写</span><br><span class="line">虚方法：为了使子类的实例完全接替来自父类的成员，父类必须将该成员声明为虚拟的，即在返回值类型前添加virtual关键字，通常虚拟的是方法（字段不能被虚拟）。</span><br><span class="line">方法重写：子类使用override关键字，将父类实现替换为自己的实现。</span><br></pre></td></tr></table></figure>
 
 <p><strong>多态的原理是当方法被调用时，无论对象是否被转换为其父类，都只有对象继承链最末端的方法实现会被调用，即虚方法是按照其运行时而非编译时的类型进行动态绑定调用的</strong>？</p>
-<h2 id="五、抽象类"><a href="#五、抽象类" class="headerlink" title="五、抽象类"></a>五、抽象类</h2><p>用abstract修饰符修饰，即public abstract class animal。</p>
+<h2 id="五、抽象类与接口"><a href="#五、抽象类与接口" class="headerlink" title="五、抽象类与接口"></a>五、抽象类与接口</h2><p>用abstract修饰符修饰，即public abstract class animal。</p>
 <p><strong>一个类中没有包含足够多的信息来描绘一个具体的对象，这个类就是抽象类（如上文class animal）。抽象类拥有尽可能多的共同代码，尽可能少的数据。</strong></p>
-<h4 id="抽象类的特点"><a href="#抽象类的特点" class="headerlink" title="抽象类的特点"></a>抽象类的特点</h4><ol>
+<h3 id="抽象类的特点"><a href="#抽象类的特点" class="headerlink" title="抽象类的特点"></a>抽象类的特点</h3><ol>
 <li><p>抽象类不能被实例化</p>
 </li>
 <li><p>抽象方法是必须被子类重写的方法</p>
@@ -86,29 +86,30 @@
 <p>抽象类通常代表一个抽象的概念，提供一个继承的出发点，所以定义的一个抽象类一定是被用来继承的，即在一个以继承关系形成的等级结构里，树叶节点应该都是具体类，而树枝节点应该都是抽象类。</p>
 </li>
 </ol>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">举个例子：</span><br><span class="line">有三个类 animal、dog 和 small dog</span><br><span class="line">若dog是最后一级，那么dog就是具体类，animal则为抽象类</span><br><span class="line">若small dog为最后一级，则dog为抽象类，small dog为具体类</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="六、接口（interface）"><a href="#六、接口（interface）" class="headerlink" title="六、接口（interface）"></a>六、接口（interface）</h2><p><strong>接口是把隐式公共方法和属性组合起来，以封装特定功能的一个集合。一旦类实现了接口，类就可以支持接口所指定的所有属性和成员，声明接口和声明抽象类的语法完全相同，但不允许提供接口中任何成员的执行方式。</strong></p>
+<p>举个例子：有三个类 animal、dog 和 small dog，<br>若dog是最后一级，那么dog就是具体类，animal则为抽象类；<br>若small dog为最后一级，则dog为抽象类，small dog为具体类。</p>
+<h3 id="接口："><a href="#接口：" class="headerlink" title="接口："></a>接口：</h3><p><strong>接口是把隐式公共方法和属性组合起来，以封装特定功能的一个集合。一旦类实现了接口，类就可以支持接口所指定的所有属性和成员，声明接口和声明抽象类的语法完全相同，但不允许提供接口中任何成员的执行方式。</strong></p>
 <p>所以接口不能实例化，没有修饰符，不能声明虚拟或静态，并且<strong>实现接口的类，就必须实现接口中的所有方法和属性。</strong></p>
 <p>一个类可以支持多个接口，多个类也可以支持相同的接口。</p>
 <p><em>接口的命名，前面要加一个I，这是命名规范。</em></p>
-<h3 id="抽象类和接口的区别"><a href="#抽象类和接口的区别" class="headerlink" title="抽象类和接口的区别"></a>抽象类和接口的区别</h3><ol>
+<p><strong>抽象类与接口的区别：</strong></p>
+<ol>
 <li>抽象类可以给出一些成员的实现，而接口不包含成员的实现</li>
 <li>抽象类的抽象成员可以被子类部分实现，接口的成员需要实现类完全实现</li>
 <li>一个类只能继承一个抽象类，但可以使用多个接口</li>
 <li>类是对对象的抽象，抽象类是对类的抽象，接口是对行为的抽象</li>
 <li>如果行为跨越不同类的对象，可使用接口；对于一些相似类的类对象，用继承抽象类（<strong>接口和继承抽象类并不冲突</strong>）</li>
-<li><strong>从设计角度讲，抽象类是从子类中发现公共的东西，泛化出父类，然后子类继承父类，而接口根本不知道子类的存在，方法如何实现还不确认，预先定义。</strong>（抽象类往往是通过重构得到的）</li>
+<li><strong>从设计角度讲，抽象类是从子类中发现公共的东西，泛化出父类，然后子类继承父类，而接口根本不知道子类的存在，方法如何实现还不确认，预先定义。</strong></li>
 </ol>
-<h2 id="七、集合"><a href="#七、集合" class="headerlink" title="七、集合"></a>七、集合</h2><h3 id="数组的优缺"><a href="#数组的优缺" class="headerlink" title="数组的优缺"></a>数组的优缺</h3><p>​    优点是数组在内存中连续存储，因此可以快速的从头到尾遍历元素，可以快速的修改元素；</p>
+<p>抽象类往往是通过重构得到的。</p>
+<h2 id="六、集合"><a href="#六、集合" class="headerlink" title="六、集合"></a>六、集合</h2><p><strong>数组的优缺：</strong></p>
+<p>​    优点是数组在内存中连续存储，因此可以快速的从头到尾遍历元素，可以快速的修改元素；</p>
 <p>​    缺点是创建时要指定大小，在两个元素之间添加也比较困难</p>
-<h3 id="集合"><a href="#集合" class="headerlink" title="集合"></a>集合</h3><p>用于存储和检索的专用类，提供对堆栈、队列、列表和哈希表的支持，大多数集合类实现相同的接口。</p>
-<hr>
-<h4 id="装箱和拆箱的概念"><a href="#装箱和拆箱的概念" class="headerlink" title="装箱和拆箱的概念"></a>装箱和拆箱的概念</h4><p><strong>装箱</strong>：把基本类型用它们相应的引用类型包装起来，使其具有对象的性质。int包装成Integer、float包装成Float</p>
+<p><strong>集合</strong>：</p>
+<p>用于存储和检索的专用类，提供对堆栈、队列、列表和哈希表的支持，大多数集合类实现相同的接口。</p>
+<p><strong>装箱与拆箱的概念：</strong></p>
+<p><strong>装箱</strong>：把基本类型用它们相应的引用类型包装起来，使其具有对象的性质。int包装成Integer、float包装成Float</p>
 <p><strong>拆箱</strong>：和装箱相反，将引用类型的对象简化成值类型的数据</p>
-<h2 id="八、泛型"><a href="#八、泛型" class="headerlink" title="八、泛型"></a>八、泛型</h2><p><strong>Java泛型设计原则：只要在编译时期没有出现警告，那么运行时期就不会出现ClassCastException异常</strong>.</p>
+<h2 id="七、泛型"><a href="#七、泛型" class="headerlink" title="七、泛型"></a>七、泛型</h2><p><strong>Java泛型设计原则：只要在编译时期没有出现警告，那么运行时期就不会出现ClassCastException异常</strong>.</p>
 <p><strong>泛型</strong>：<strong>把类型明确的工作推迟到创建对象或调用方法的时候才去明确的特殊的类型</strong></p>
 <p>参数化类型:</p>
 <ul>
@@ -123,7 +124,7 @@
 <li><strong>整个<code>ArrayList&lt;Integer&gt;</code>称为参数化的类型ParameterizedType</strong></li>
 </ul>
 <p>通常情况下，都建议使用泛型集合，这样可以获得类型安全的直接优点。</p>
-<h2 id="九、委托与事件"><a href="#九、委托与事件" class="headerlink" title="九、委托与事件"></a>九、委托与事件</h2><p>委托是对函数的封装，可以当作给方法的特征指定了一个名称；事件是委托的一种特殊形式，当发生有意义的事情时，事件对象处理通知过程。</p>
+<h2 id="八、委托与事件"><a href="#八、委托与事件" class="headerlink" title="八、委托与事件"></a>八、委托与事件</h2><p>委托是对函数的封装，可以当作给方法的特征指定了一个名称；事件是委托的一种特殊形式，当发生有意义的事情时，事件对象处理通知过程。</p>
 <p>委托用delegate来声明，事件用event。其中<strong>+=表示增加委托实例对象，-=同理。</strong></p>
 ]]></content>
       <tags>
