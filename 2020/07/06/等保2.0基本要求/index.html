@@ -1,140 +1,230 @@
-<?xml version="1.0" encoding="utf-8"?>
-<search>
-  <entry>
-    <title>设计模式学习笔记</title>
-    <url>/2020/05/23/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
-    <title>面向对象基础</title>
-    <url>/2020/05/24/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E5%9F%BA%E7%A1%80/</url>
-    <content><![CDATA[<p>​    最近打算仔细阅读一下《大话设计模式》这本书，大学期间学到的关于C/C++的知识都是相当浅显的，没有深入理解，自己学习JAVA后，对面向对象也没有一个系统的认识，正好借此机会体会一下面向对象的一些基本概念，以后学习起设计模式和JAVA深入也能够有更好的理解。</p>
-<a id="more"></a>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
 
-<h2 id="一、类与实例"><a href="#一、类与实例" class="headerlink" title="一、类与实例"></a>一、类与实例</h2><h3 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h3><p>​    对象是一个自包含实体，用一组可识别的特性和行为来标识。（面向对象编程：Object-Oriented Programming）</p>
-<h3 id="类"><a href="#类" class="headerlink" title="类"></a>类</h3><p>​    类是具有相同属性和功能的对象的抽象的集合。class表示定义类的关键字。</p>
-<p>​    类名称首字母要大写；对外公开的方法用”public”修饰符。</p>
-<p>​    <strong>将类的实例化来应用类</strong>。实例化即为创建<strong>对象</strong>的过程，<strong>使用new关键字来创建</strong>。</p>
-<h2 id="二、构造方法"><a href="#二、构造方法" class="headerlink" title="二、构造方法"></a>二、构造方法</h2><p>​    构造方法又称构造函数，<strong>其本质是对类进行初始化</strong>，构造方法与类同名，无返回值，不需要void，在new时调用。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">设有一个类Cat:</span><br><span class="line">    Cat cat&#x3D;new Cat();</span><br><span class="line">    new之后的Cat()即为构造方法。</span><br><span class="line">    所有的类都有构造方法，默认的为空的构造方法，如上行的Cat()，如果有定义的话，默认的构造方法就会失效。</span><br></pre></td></tr></table></figure>
+<link rel="stylesheet" href="/css/main.css">
 
 
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
 
-<h2 id="三、方法重载、属性和修饰符"><a href="#三、方法重载、属性和修饰符" class="headerlink" title="三、方法重载、属性和修饰符"></a>三、方法重载、属性和修饰符</h2><p>  方法重载提供了创建同名的多个方法的能力，<strong>但这些方法需要使用不同的参数类型</strong>。（构造方法和普通方法均可以重载）</p>
-<p>  <strong>方法重载时，方法名必须相同，但参数名或个数必须不同</strong>——即在不改变原方法的基础上增加新功能。</p>
-<p>  <strong>属性是一个方法或一对方法</strong>，<em>属性适合于以字段的方式使用方法调用的场合</em>（即在调用的代码看来，它是一个字段），<strong>字段</strong>是存储类要满足其设计所需要的数据，即字段是与类相关的变量。</p>
-<hr>
-<p><strong>修饰符</strong>有private和public的区别，还有protected（下文提到）</p>
-<p>public表示其修饰的类成员可以允许其他类来访问，即共有的；</p>
-<p>private表示只允许同一个类中的成员来进行访问，即私有的。（如果没有加修饰符，默认为private）</p>
-<p><strong>通常字段都是私有的private，属性都是公有的public</strong>。</p>
-<hr>
-<p><strong>属性有两个方法，get和set</strong>。</p>
-<p>get访问器返回与声明的属性相同的数据类型，即外界调用可以得到内部字段的值；</p>
-<p>set访问器没有显式地设置参数，（<strong>但有隐式参数，关键字value表示</strong>）即调用属性时可以给内部的字段或引用赋值。</p>
-<h2 id="四、封装、继承、多态（面向对象的三大特性）"><a href="#四、封装、继承、多态（面向对象的三大特性）" class="headerlink" title="四、封装、继承、多态（面向对象的三大特性）"></a>四、封装、继承、多态（面向对象的三大特性）</h2><h3 id="封装"><a href="#封装" class="headerlink" title="封装"></a>封装</h3><p>变量私有的叫字段，公有的叫属性。</p>
-<p><strong>方法也分为公有方法和私有方法</strong>。一般无须对外公开的方法都设置其修饰符为private，这样更加利于封装。</p>
-<p>每个对象都包含他能进行操作的所有信息的这个特性，称之为<strong>封装</strong>，因此对象不必依赖其他对象来完成操作。</p>
-<h4 id="面向对象的好处"><a href="#面向对象的好处" class="headerlink" title="面向对象的好处"></a>面向对象的好处</h4><ol>
-<li>良好的封装能减少耦合</li>
-<li>类内部可以实现自由的更改</li>
-<li>类具有清晰的对外接口</li>
-</ol>
-<hr>
-<h3 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h3><p>对象的继承代表了一种”is a”的关系，<strong>即如果有两个对象A和B，可以说B是A，则B可以继承A。</strong></p>
-<p>继承者可以理解为对被继承者的特殊化，他既具有被继承者的特性，也具有自己独特的性质。<em>如狗是哺乳动物，狗则继承了哺乳动物。**</em>继承关系不能被相互颠倒，在继承关系中，继承者可以完全替代被继承者，反之不能成立**。</p>
-<p>继承定义了类如何相互关联，共享特性。继承的工作方式是定义父类（基类）和子类（派生类），子类继承父类所有特性，并派生新的特性。</p>
-<h4 id="继承的三句重点"><a href="#继承的三句重点" class="headerlink" title="继承的三句重点"></a>继承的三句重点</h4><ol>
-<li>子类拥有父类非private的属性和功能</li>
-<li>子类具有自己的属性和功能，即子类可以扩展父类没有的属性或功能</li>
-<li>子类还可以以自己的方式实现父类的功能（方法重写）</li>
-</ol>
-<p><strong>其中非private表示另一个修饰符protected，表示继承时子类对基类有完全访问权，即用protected修饰的类成员，对子类公开，不对其他类公开。</strong></p>
-<p>  <em>在C#中，子类从父类继承的有方法、域、属性、事件和索引指示器，但对于构造方法，不能被继承，只能被调用（使用base关键字）。</em></p>
-<h4 id="继承的优缺"><a href="#继承的优缺" class="headerlink" title="继承的优缺"></a>继承的优缺</h4><p>优点：</p>
-<ol>
-<li>使得所有子类的公共部分都放在了父类，使代码得到了共享，避免了重复</li>
-<li>继承可以使得修改和扩展继承较为容易</li>
-</ol>
-<p>缺点：</p>
-<ol>
-<li>父类变，子类不得不变</li>
-<li>子类会破坏包装，父类的实现的细节暴露给子类，增大耦合性</li>
-</ol>
-<p>（耦合性高的表现：两个类分开但关系密切，一个类的变化会影响到另一个类）</p>
-<p><strong>继承显然是一种强耦合关系，当只有两个类的关系满足”is a”时，才可以考虑使用继承。当关系为”has a”时则不合适，如人有两只手的这种关系</strong></p>
-<hr>
-<h3 id="多态"><a href="#多态" class="headerlink" title="多态"></a>多态</h3><p><strong>多态表示不同的对象可以执行相同的操作，但要通过他们自己的实现代码来执行。</strong>（这个对象的声明必须为父类，而不是子类，实例化的对象是子类）</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">动物 animal &#x3D; new 猫()</span><br><span class="line">其中对象的声明必须为父类animal，而不是子类cat.</span><br><span class="line"></span><br><span class="line">即上一行可以转化为：</span><br><span class="line">猫 cat &#x3D; new 猫();</span><br><span class="line">动物 animal &#x3D; cat;</span><br></pre></td></tr></table></figure>
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":2,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
 
-<ol>
-<li>子类以父类的身份出现</li>
-<li>子类在工作时以自己的方式来表现</li>
-<li>子类以父类身份出现时，子类特有的方法和属性不可使用</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">虚方法和方法重写</span><br><span class="line">虚方法：为了使子类的实例完全接替来自父类的成员，父类必须将该成员声明为虚拟的，即在返回值类型前添加virtual关键字，通常虚拟的是方法（字段不能被虚拟）。</span><br><span class="line">方法重写：子类使用override关键字，将父类实现替换为自己的实现。</span><br></pre></td></tr></table></figure>
+  <meta name="description" content="Abstract根据老师安排任务，近期完成石化行业的安全评价指标体系的建立，在建立体系之前，先对于2019年新出台的等保2.0进行了熟悉和仔细阅读，以便接下来基于等保2.0和石化行业的典型场景来确定对应专用的安全评价指标体系。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="等保2.0基本要求">
+<meta property="og:url" content="http://yoursite.com/2020/07/06/%E7%AD%89%E4%BF%9D2.0%E5%9F%BA%E6%9C%AC%E8%A6%81%E6%B1%82/index.html">
+<meta property="og:site_name" content="Guyang&#39;s Notes">
+<meta property="og:description" content="Abstract根据老师安排任务，近期完成石化行业的安全评价指标体系的建立，在建立体系之前，先对于2019年新出台的等保2.0进行了熟悉和仔细阅读，以便接下来基于等保2.0和石化行业的典型场景来确定对应专用的安全评价指标体系。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://yoursite.com/Users/guyang/Temporary/%E5%B1%82%E6%AC%A1%E6%A8%A1%E5%9E%8B.jpg">
+<meta property="article:published_time" content="2020-07-06T12:11:12.000Z">
+<meta property="article:modified_time" content="2020-07-06T12:16:40.755Z">
+<meta property="article:author" content="GuYang">
+<meta property="article:tag" content="工控系统安全">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/Users/guyang/Temporary/%E5%B1%82%E6%AC%A1%E6%A8%A1%E5%9E%8B.jpg">
 
-<p><strong>多态的原理是当方法被调用时，无论对象是否被转换为其父类，都只有对象继承链最末端的方法实现会被调用，即虚方法是按照其运行时而非编译时的类型进行动态绑定调用的</strong>？</p>
-<h2 id="五、抽象类与接口"><a href="#五、抽象类与接口" class="headerlink" title="五、抽象类与接口"></a>五、抽象类与接口</h2><p>用abstract修饰符修饰，即public abstract class animal。</p>
-<p><strong>一个类中没有包含足够多的信息来描绘一个具体的对象，这个类就是抽象类（如上文class animal）。抽象类拥有尽可能多的共同代码，尽可能少的数据。</strong></p>
-<h3 id="抽象类的特点"><a href="#抽象类的特点" class="headerlink" title="抽象类的特点"></a>抽象类的特点</h3><ol>
-<li><p>抽象类不能被实例化</p>
-</li>
-<li><p>抽象方法是必须被子类重写的方法</p>
-</li>
-<li><p>如果类中包含抽象方法，该类一定为抽象类，不论是否还存在其他一般的方法</p>
-<p>抽象类通常代表一个抽象的概念，提供一个继承的出发点，所以定义的一个抽象类一定是被用来继承的，即在一个以继承关系形成的等级结构里，树叶节点应该都是具体类，而树枝节点应该都是抽象类。</p>
-</li>
-</ol>
-<p>举个例子：有三个类 animal、dog 和 small dog，<br>若dog是最后一级，那么dog就是具体类，animal则为抽象类；<br>若small dog为最后一级，则dog为抽象类，small dog为具体类。</p>
-<h3 id="接口："><a href="#接口：" class="headerlink" title="接口："></a>接口：</h3><p><strong>接口是把隐式公共方法和属性组合起来，以封装特定功能的一个集合。一旦类实现了接口，类就可以支持接口所指定的所有属性和成员，声明接口和声明抽象类的语法完全相同，但不允许提供接口中任何成员的执行方式。</strong></p>
-<p>所以接口不能实例化，没有修饰符，不能声明虚拟或静态，并且<strong>实现接口的类，就必须实现接口中的所有方法和属性。</strong></p>
-<p>一个类可以支持多个接口，多个类也可以支持相同的接口。</p>
-<p><em>接口的命名，前面要加一个I，这是命名规范。</em></p>
-<p><strong>抽象类与接口的区别：</strong></p>
-<ol>
-<li>抽象类可以给出一些成员的实现，而接口不包含成员的实现</li>
-<li>抽象类的抽象成员可以被子类部分实现，接口的成员需要实现类完全实现</li>
-<li>一个类只能继承一个抽象类，但可以使用多个接口</li>
-<li>类是对对象的抽象，抽象类是对类的抽象，接口是对行为的抽象</li>
-<li>如果行为跨越不同类的对象，可使用接口；对于一些相似类的类对象，用继承抽象类（<strong>接口和继承抽象类并不冲突</strong>）</li>
-<li><strong>从设计角度讲，抽象类是从子类中发现公共的东西，泛化出父类，然后子类继承父类，而接口根本不知道子类的存在，方法如何实现还不确认，预先定义。</strong></li>
-</ol>
-<p>抽象类往往是通过重构得到的。</p>
-<h2 id="六、集合"><a href="#六、集合" class="headerlink" title="六、集合"></a>六、集合</h2><p><strong>数组的优缺：</strong></p>
-<p>​    优点是数组在内存中连续存储，因此可以快速的从头到尾遍历元素，可以快速的修改元素；</p>
-<p>​    缺点是创建时要指定大小，在两个元素之间添加也比较困难</p>
-<p><strong>集合</strong>：</p>
-<p>用于存储和检索的专用类，提供对堆栈、队列、列表和哈希表的支持，大多数集合类实现相同的接口。</p>
-<p><strong>装箱与拆箱的概念：</strong></p>
-<p><strong>装箱</strong>：把基本类型用它们相应的引用类型包装起来，使其具有对象的性质。int包装成Integer、float包装成Float</p>
-<p><strong>拆箱</strong>：和装箱相反，将引用类型的对象简化成值类型的数据</p>
-<h2 id="七、泛型"><a href="#七、泛型" class="headerlink" title="七、泛型"></a>七、泛型</h2><p><strong>Java泛型设计原则：只要在编译时期没有出现警告，那么运行时期就不会出现ClassCastException异常</strong>.</p>
-<p><strong>泛型</strong>：<strong>把类型明确的工作推迟到创建对象或调用方法的时候才去明确的特殊的类型</strong></p>
-<p>参数化类型:</p>
-<ul>
-<li><strong>把类型当作是参数一样传递</strong></li>
-<li><strong><code>&lt;数据类型&gt;</code> 只能是引用类型</strong></li>
-</ul>
-<p>相关术语：</p>
-<ul>
-<li><code>ArrayList&lt;E&gt;</code>中的<strong>E称为类型参数变量</strong></li>
-<li><code>ArrayList&lt;Integer&gt;</code>中的<strong>Integer称为实际类型参数</strong></li>
-<li><strong>整个称为<code>ArrayList&lt;E&gt;</code>泛型类型</strong></li>
-<li><strong>整个<code>ArrayList&lt;Integer&gt;</code>称为参数化的类型ParameterizedType</strong></li>
-</ul>
-<p>通常情况下，都建议使用泛型集合，这样可以获得类型安全的直接优点。</p>
-<h2 id="八、委托与事件"><a href="#八、委托与事件" class="headerlink" title="八、委托与事件"></a>八、委托与事件</h2><p>委托是对函数的封装，可以当作给方法的特征指定了一个名称；事件是委托的一种特殊形式，当发生有意义的事情时，事件对象处理通知过程。</p>
-<p>委托用delegate来声明，事件用event。其中<strong>+=表示增加委托实例对象，-=同理。</strong></p>
-]]></content>
-      <tags>
-        <tag>基础知识</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>等保2.0基本要求</title>
-    <url>/2020/07/06/%E7%AD%89%E4%BF%9D2.0%E5%9F%BA%E6%9C%AC%E8%A6%81%E6%B1%82/</url>
-    <content><![CDATA[<h2 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h2><p>根据老师安排任务，近期完成石化行业的安全评价指标体系的建立，在建立体系之前，先对于2019年新出台的等保2.0进行了熟悉和仔细阅读，以便接下来基于等保2.0和石化行业的典型场景来确定对应专用的安全评价指标体系。</p>
+<link rel="canonical" href="http://yoursite.com/2020/07/06/%E7%AD%89%E4%BF%9D2.0%E5%9F%BA%E6%9C%AC%E8%A6%81%E6%B1%82/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>等保2.0基本要求 | Guyang's Notes</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Guyang's Notes</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">2</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">3</span></a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/06/%E7%AD%89%E4%BF%9D2.0%E5%9F%BA%E6%9C%AC%E8%A6%81%E6%B1%82/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/WechatIMG1.gif">
+      <meta itemprop="name" content="GuYang">
+      <meta itemprop="description" content="Life is but a span.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Guyang's Notes">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          等保2.0基本要求
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-07-06 20:11:12 / 修改时间：20:16:40" itemprop="dateCreated datePublished" datetime="2020-07-06T20:11:12+08:00">2020-07-06</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h2><p>根据老师安排任务，近期完成石化行业的安全评价指标体系的建立，在建立体系之前，先对于2019年新出台的等保2.0进行了熟悉和仔细阅读，以便接下来基于等保2.0和石化行业的典型场景来确定对应专用的安全评价指标体系。</p>
 <a id="more"></a>
 
 <h2 id="与等保1-0的主要变化"><a href="#与等保1-0的主要变化" class="headerlink" title="与等保1.0的主要变化"></a>与等保1.0的主要变化</h2><ol>
@@ -331,9 +421,202 @@
 <li>安全措施不得对基本功能产生不利影响。</li>
 <li>对可用性影响较大的相关条款要进行申明，并予以补偿。</li>
 </ul>
-]]></content>
-      <tags>
-        <tag>工控系统安全</tag>
-      </tags>
-  </entry>
-</search>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%B7%A5%E6%8E%A7%E7%B3%BB%E7%BB%9F%E5%AE%89%E5%85%A8/" rel="tag"># 工控系统安全</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/05/24/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E5%9F%BA%E7%A1%80/" rel="prev" title="面向对象基础">
+      <i class="fa fa-chevron-left"></i> 面向对象基础
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Abstract"><span class="nav-number">1.</span> <span class="nav-text">Abstract</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#与等保1-0的主要变化"><span class="nav-number">2.</span> <span class="nav-text">与等保1.0的主要变化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#主要内容"><span class="nav-number">3.</span> <span class="nav-text">主要内容</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、等级保护对象"><span class="nav-number">3.1.</span> <span class="nav-text">1、等级保护对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、不同级别对象安全保护能力"><span class="nav-number">3.2.</span> <span class="nav-text">2、不同级别对象安全保护能力</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3、等级保护要求分为安全通用要求和安全扩展要求"><span class="nav-number">3.3.</span> <span class="nav-text">3、等级保护要求分为安全通用要求和安全扩展要求</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第一级安全要求"><span class="nav-number">4.</span> <span class="nav-text">第一级安全要求</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、安全通用要求（包含ICS扩展）"><span class="nav-number">4.1.</span> <span class="nav-text">1、安全通用要求（包含ICS扩展）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#安全物理环境"><span class="nav-number">4.1.1.</span> <span class="nav-text">安全物理环境</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安全通信网络"><span class="nav-number">4.1.2.</span> <span class="nav-text">安全通信网络</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安全区域边界"><span class="nav-number">4.1.3.</span> <span class="nav-text">安全区域边界</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安全计算环境"><span class="nav-number">4.1.4.</span> <span class="nav-text">安全计算环境</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安全管理制度"><span class="nav-number">4.1.5.</span> <span class="nav-text">安全管理制度</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安全管理机构"><span class="nav-number">4.1.6.</span> <span class="nav-text">安全管理机构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安全管理人员"><span class="nav-number">4.1.7.</span> <span class="nav-text">安全管理人员</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安全建设管理"><span class="nav-number">4.1.8.</span> <span class="nav-text">安全建设管理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安全运维管理"><span class="nav-number">4.1.9.</span> <span class="nav-text">安全运维管理</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第二级安全要求"><span class="nav-number">5.</span> <span class="nav-text">第二级安全要求</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、安全通用要求（包含ICS扩展）-1"><span class="nav-number">5.1.</span> <span class="nav-text">1、安全通用要求（包含ICS扩展）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#安全物理环境-1"><span class="nav-number">5.1.1.</span> <span class="nav-text">安全物理环境</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安全通信网络-1"><span class="nav-number">5.1.2.</span> <span class="nav-text">安全通信网络</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安全区域边界-1"><span class="nav-number">5.1.3.</span> <span class="nav-text">安全区域边界</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安全计算环境-1"><span class="nav-number">5.1.4.</span> <span class="nav-text">安全计算环境</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安全管理中心"><span class="nav-number">5.1.5.</span> <span class="nav-text">安全管理中心</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安全管理制度-1"><span class="nav-number">5.1.6.</span> <span class="nav-text">安全管理制度</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安全管理机构-1"><span class="nav-number">5.1.7.</span> <span class="nav-text">安全管理机构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安全管理人员-1"><span class="nav-number">5.1.8.</span> <span class="nav-text">安全管理人员</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安全建设管理-1"><span class="nav-number">5.1.9.</span> <span class="nav-text">安全建设管理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安全运维管理-1"><span class="nav-number">5.1.10.</span> <span class="nav-text">安全运维管理</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第三级安全要求"><span class="nav-number">6.</span> <span class="nav-text">第三级安全要求</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、安全通用要求（包含ICS扩展）-2"><span class="nav-number">6.1.</span> <span class="nav-text">1、安全通用要求（包含ICS扩展）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#安全物理环境-2"><span class="nav-number">6.1.1.</span> <span class="nav-text">安全物理环境</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安全通信网络-2"><span class="nav-number">6.1.2.</span> <span class="nav-text">安全通信网络</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安全区域边界-2"><span class="nav-number">6.1.3.</span> <span class="nav-text">安全区域边界</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安全计算环境-2"><span class="nav-number">6.1.4.</span> <span class="nav-text">安全计算环境</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安全管理中心-1"><span class="nav-number">6.1.5.</span> <span class="nav-text">安全管理中心</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安全管理制度-2"><span class="nav-number">6.1.6.</span> <span class="nav-text">安全管理制度</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安全管理机构-2"><span class="nav-number">6.1.7.</span> <span class="nav-text">安全管理机构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安全管理人员-2"><span class="nav-number">6.1.8.</span> <span class="nav-text">安全管理人员</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安全建设管理-2"><span class="nav-number">6.1.9.</span> <span class="nav-text">安全建设管理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安全运维管理-2"><span class="nav-number">6.1.10.</span> <span class="nav-text">安全运维管理</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第四级安全要求"><span class="nav-number">7.</span> <span class="nav-text">第四级安全要求</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、安全通用要求（包含ICS扩展）-3"><span class="nav-number">7.1.</span> <span class="nav-text">1、安全通用要求（包含ICS扩展）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#安全物理环境-3"><span class="nav-number">7.1.1.</span> <span class="nav-text">安全物理环境</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安全通信网络-3"><span class="nav-number">7.1.2.</span> <span class="nav-text">安全通信网络</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安全区域边界-3"><span class="nav-number">7.1.3.</span> <span class="nav-text">安全区域边界</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安全计算环境-3"><span class="nav-number">7.1.4.</span> <span class="nav-text">安全计算环境</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安全管理中心-2"><span class="nav-number">7.1.5.</span> <span class="nav-text">安全管理中心</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安全管理制度-3"><span class="nav-number">7.1.6.</span> <span class="nav-text">安全管理制度</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安全管理机构-3"><span class="nav-number">7.1.7.</span> <span class="nav-text">安全管理机构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安全管理人员-3"><span class="nav-number">7.1.8.</span> <span class="nav-text">安全管理人员</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安全建设管理-3"><span class="nav-number">7.1.9.</span> <span class="nav-text">安全建设管理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安全运维管理-3"><span class="nav-number">7.1.10.</span> <span class="nav-text">安全运维管理</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第五级安全要求"><span class="nav-number">8.</span> <span class="nav-text">第五级安全要求</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#附录G-工业控制系统应用场景说明"><span class="nav-number">9.</span> <span class="nav-text">附录G 工业控制系统应用场景说明</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、系统概述"><span class="nav-number">9.1.</span> <span class="nav-text">1、系统概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、功能层次模型"><span class="nav-number">9.2.</span> <span class="nav-text">2、功能层次模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3、各层次与等级保护基本要求的映射关系"><span class="nav-number">9.3.</span> <span class="nav-text">3、各层次与等级保护基本要求的映射关系</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4、实现等级保护要求的一些约束条件"><span class="nav-number">9.4.</span> <span class="nav-text">4、实现等级保护要求的一些约束条件</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="GuYang"
+      src="/images/WechatIMG1.gif">
+  <p class="site-author-name" itemprop="name">GuYang</p>
+  <div class="site-description" itemprop="description">Life is but a span.</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">3</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/guyangalen" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;guyangalen" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">GuYang</span>
+</div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
